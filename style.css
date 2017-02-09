@@ -1,13 +1,13 @@
 body{background-color: grey;}
 .simon{
 	display: inline-block;
-	background-color: black;
+	background-color: #222;
 	width:30rem;
 	height:30rem;
 	border-radius: 100%;
 	align-content: center;
 	z-index: -1;
-
+	color:#222;
 
 	
 }
@@ -20,10 +20,13 @@ body{background-color: grey;}
 	border-radius: 100%;
 	align-content: center;
 	z-index: 6;
-	border: 1rem solid black;
+	border: 1rem solid #222;
 }
 .controls h1{
 	text-align: center;
+	font-size: 50px;
+	font-weight: bolder;
+	color: black;
 }
 .lights{
 	
@@ -43,8 +46,11 @@ body{background-color: grey;}
 	width: 5rem;
 	height: 3rem;
 	background-color: #32050c;
-	border-radius: 25%;
+	border-radius: 15%;
 	margin: -10rem 0 0 9rem;
+	color: #DC0D29;
+	padding-top: .5px;
+	font-size: 2.7rem;
 }
 .led>.label{
 	margin: 0 0 0 9rem;
@@ -55,7 +61,7 @@ body{background-color: grey;}
 	border-radius: 100%;
 	background-color: red;
 	margin: -9rem 0 1rem 1.8rem;
-	border: 2px solid black;
+	border: 2px solid #222;
 
 }
 .startButton>.label{
@@ -67,6 +73,9 @@ body{background-color: grey;}
 	border-radius: 100%;
 	background-color: #32050c;
 	margin: -10rem 0 0 2.5rem;
+}
+.ledOn{
+	background-color: #DC0D29;
 }
 .yellowButton{
 	width: 1rem;
@@ -88,23 +97,55 @@ body{background-color: grey;}
 }
 .offLabel{
 	margin:-4.8rem .5rem 0 11rem;
+
 }
-.switchBox{
-	width: 1.7rem;
+.switchBoxOn{
+	width: 3.2rem;
 	height: 1.3rem;
-	background-color: black;
-	border: 2px solid black;
-	margin: -5rem 0 0 0rem;
+	background-color: #222;
+	border: 2px solid #222;
+	margin: -5rem 0 0 -3.7rem;
+	border-radius: 5%;
+	z-index: 6
+
 }
-.switchButton{
+.switchButtonOn{
 	width:1.5rem;
 	height: 1.3rem;
 	background-color: blue;
-	border: 2px solid black;
+	border: 2px solid #222;
+	margin: -5rem 0 0 2.2rem;
+	border-radius: 10%;
+	z-index: 8;
+
+}
+.switchBoxOff{
+	width: 3.2rem;
+	height: 1.3rem;
+	background-color: #222;
+	border: 2px solid #222;
+	margin: -5rem 0 0 -1.5rem;
+	border-radius: 5%;
+}
+.switchButtonOff{
+	width:1.5rem;
+	height: 1.3rem;
+	background-color: blue;
+	border: 2px solid #222;
 	margin: -5rem 0 0 0rem;
+	border-radius: 10%;
+	z-index: 8;
 }
 .onLabel{
 	margin: -4.8rem 0 0 .5rem;
+}
+.clickable{
+	pointer-events: auto;
+	cursor: pointer;
+}
+
+.unclickable{
+	pointer-events: none;
 }
 
 .red{
