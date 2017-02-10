@@ -151,17 +151,22 @@ body{background-color: grey;}
 .red{
 
 	display: relative;	
-	background-color: #9f0f17;
+
 	width: 13rem;
 	height: 13rem;
 	z-index: 2;
 	border-top-right-radius : 100%;
 	margin: -13rem 0 0 15.5rem;
 }
-
+.color0On{
+	background-color: #ff4c4c;
+}
+.color0Off{
+		background-color: #9f0f17;
+}
 .green{
 	display:relative;
-	background-color: #00a74a;
+	
 	width: 13rem;
 	height: 13rem;
 	z-index: 2;
@@ -169,10 +174,16 @@ body{background-color: grey;}
 	margin: 1.5rem 0 0 1.5rem;
 
 }
+.color1On{
+	background-color: #13ff7c;
+}
+.color1Off{
+	background-color: #00a74a;
+}
 
 .yellow{
 	display: relative;
-	background-color: #cca707;
+	
 	width: 13rem;
 	height: 13rem;
 	z-index: 2;
@@ -180,14 +191,25 @@ body{background-color: grey;}
 	margin: 1rem 0 0 1.5rem;
 
 }
-
+.color2On{
+	background-color: #fed93f;
+}
+.color2Off{
+	background-color: #cca707;
+}
 .blue{
 	display: relative;
-	background-color: #094a8f;
+	
 	width: 13rem;
 	height: 13rem;
 	z-index: 2;
 	border-bottom-right-radius : 100%;
 	margin: -13rem 0 0 15.5rem;
 
+}
+.color3On{
+	background-color: #1c8cff;
+}
+.color3Off{
+	background-color: #094a8f;
 }
