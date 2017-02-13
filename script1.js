@@ -6,7 +6,8 @@ var turns=[];
 var playerTurns=[];
 var playerTurnCount=0;
 var pushNumber;
-
+var count=0;
+var x=0;
 $(document).ready(function(){
 
 	$('.switchButton').click(function(){
@@ -56,14 +57,17 @@ $(document).ready(function(){
 	});
 	function gamePlay(){
 		if(turns.length>0){
+			console.log('line 59 gamePlay() turns.length>0');
 			console.log('playTurnsArry() '+turns);
-			playTurnsArray();
-			setTimeout(function(){
-				randomPlay();
-			},1000);
+			x=0;
+			randomPlay();
+			initTimeOut(x);
+			
 			
 		}else{
+			console.log('line 67 gamePlay() else');
 			randomPlay();
+			initTimeOut(x);
 			
 		}
 		yourPlay();	
@@ -84,31 +88,68 @@ $(document).ready(function(){
 	function randomPlay(){
 		var randomNumber=Math.floor(Math.random()*4);
 		turns.push(randomNumber)
-		$('.color'+randomNumber).removeClass('color'+randomNumber+'Off').addClass('color'+randomNumber+'On');
-		console.log('line 87 randomNumber '+randomNumber);
-		new Audio(baseUrl+audio[randomNumber]).play();
-		setTimeout(function(){
-			$('.color'+randomNumber).removeClass('color'+randomNumber+'On').addClass('color'+randomNumber+'Off');
-		},500);
+		
 		//$('.color'+randomNumber).removeClass('color'+randomNumber+'Off').addClass('color'+randomNumber+'On');
 		
 	}
-	function playTurnsArray(){
-		//plays the array
-		
-		colorsUnclickable();
 
-		for (var i = 0; i<turns.length-1; i++){
-			setTimeout(function(){
-				$('.color'+turns[i]).removeClass('color'+turns[i]+'Off').addClass('color'+turns[i]+'On');
-				console.log('line 103 turns[i] '+turns[i]);
-				new Audio(baseUrl+audio[turns[i]]).play();
-				setTimeout(function(){
-					$('.color'+turns[i]).removeClass('color'+turns[i]+'On').addClass('color'+turns[i]+'Off');
-					},500);
-			},500);
+
+ //    function initiateTimeOut(i) {
+ //    setTimeout(function() { doStuff(i) }, 3000);
+	// }
+	// function doStuff() {
+	//     console.log(i);
+	//     i++;
+	//     if (i <= 10) {
+	//         initiateTimeOut(i); 
+	//     }
+	// }
+
+	// var i = 0;
+
+	// initiateTimeOut(i);
+
+
+	function initTimeOut(x){
+		var playThis= setInterval(function()
+			{
+				playTurnsArray(x)
+				x++;
+				console.log('count update '+x+' '+turns.length);
+				$('#screen').text(x);
+				if(x==turns.length){
+					clearInterval(playThis);
+				}
+
+
+			},1200);
+				
+	}
+
+
+	function playTurnsArray(x){
+		//plays the array
+		//colorsUnclickable();
 			
-		}
+			$('.color'+turns[x]).removeClass('color'+turns[x]+'Off').addClass('color'+turns[x]+'On');			
+			setTimeout(function(){
+				$('.color'+turns[x]).removeClass('color'+turns[x]+'On').addClass('color'+turns[x]+'Off');
+				},900);
+				new Audio(baseUrl+audio[turns[x]]).play();
+			
+		// for(var i = 0; i<turns.length; i++){
+		// 	console.log('for loop in playTurnsArray line 105 i = '+i);
+		// 	setTimeout(function(){
+		// 		console.log('line 107 play turn i= '+i);
+		// 		$('.color'+turns[i-1]).removeClass('color'+turns[i-1]+'Off').addClass('color'+turns[i-1]+'On');
+		// 		console.log('line 109 turns[i] '+turns);
+		// 		new Audio(baseUrl+audio[turns[i-1]]).play();
+		// 		setTimeout(function(){
+		// 			$('.color'+turns[i-1]).removeClass('color'+turns[i-1]+'On').addClass('color'+turns[i-1]+'Off');
+		// 			},500);
+		// 	},500);
+			
+		// }
 		
 		
 	}
